@@ -1,7 +1,7 @@
 import express from 'express'
 import path from 'path'
 import { userRouter } from './controller/userController.js'
-import { productRouter } from './controller/prodController.js'
+// import { productRouter } from './controller/prodController.js'
 
 import bodyParser from 'body-parser'
 import { log } from 'console'
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/users', userRouter)
-app.use('/products', productRouter)
+// app.use('/products', productRouter)
 
 app.use( express.static('./static'),
     express.json(),
