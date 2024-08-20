@@ -1,10 +1,11 @@
 import express from 'express'
 import path from 'path'
-import { userRouter } from './controller/UserController.js'
+import { userRouter } from './controller/userController.js'
 import { productRouter } from './controller/prodController.js'
 
 import bodyParser from 'body-parser'
 import { log } from 'console'
+
 // Create an express app
 const app = express()
 const port = +process.env.PORT || 4000
