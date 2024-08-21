@@ -1,6 +1,8 @@
 import { connection as db} from '../config/index.js'
 import {compare, hash} from 'bcrypt'
 
+import { createToken } from '../middleware/AuthenticateUser.js'
+
 class Users {
     static fetchUsers(req, res) {
         try {
@@ -28,9 +30,10 @@ class Users {
         try {
             const strQry = `
             SELECT * 
-            FROM Users;`
+            FROM Users
+            WHERE userID = ${req.params.id};`
             db.query(strQry, (err, results) => {
-                if (err) throw new Error (`Unable to fetch all users`);
+                if (err) throw new Error (`Unable to fetch this users`);
                 res.json({
                     status: res.statusCode,
                     results
@@ -44,14 +47,14 @@ class Users {
         }
     }
 
-    static async registerUser(){
+    static async registerUser(req, res){
         try {
             let data = req.body
-            data.pwd = await hash(data.pwd,12)
+            data.userPass = await hash(data.userPass,12)
                 // payload
                 let user = {
                     emailAdd: data.emailAdd,
-                    pwd: data.pwd
+                    pwd: data.userPass
                 }
                 let strQry = `
                 INSERT INTO Users 
@@ -77,7 +80,7 @@ class Users {
         }
     }
 
-    static async updated() {
+    static async updated(req,res) {
         try {
             let data = req.body
             if (data.pwd) {
@@ -86,11 +89,11 @@ class Users {
             const strQry = `
             UPDATE Users
             SET ?
-            WHERE underID = ${req.params.id}
+            WHERE userID = ${req.params.id}
             `
             db.query(strQry, [data], (err) => {
     
-                if (err) throw new Error (`Unable to update user}`);
+                if (err) throw new Error (err);
                 res.json({
                     status: res.statusCode,
                     msg: 'User updated successfully'
@@ -104,10 +107,10 @@ class Users {
         }
     }
 
-    static deleteUser() {
+    static deleteUser(req,res) {
         try {
             const strQry = `
-            DELETE FROM Users WHERE underID = ${req.params.id};
+            DELETE FROM Users WHERE userID = ${req.params.id};
             `
             db.query(strQry, (err) => {
                 if (err) throw new Error('Error deleting')
@@ -124,9 +127,9 @@ class Users {
         }
     }
 
-    static loginUser() {
+    static loginUser(req,res) {
         try {
-            const { emailAdd, pwd} = req.body
+            const { emailAdd, userPass} = req.body
             const strQry = `
             SELECT *
             FROM Users 
@@ -143,11 +146,11 @@ class Users {
                     )
                 } else {
                     const isValidPass = await compare
-                    (pwd, result[0].pwd)
+                    (userPass, result[0].userPass)
                     if (isValidPass) {
                         const token = createToken({
                             emailAdd,
-                            pwd
+                            userPass
                         })
                         res.json({
                             status: res.statusCode,

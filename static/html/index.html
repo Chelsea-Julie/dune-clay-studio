@@ -4,10 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Nude Clay Studio API</title>
+    <title>dune Clay Studio API</title>
 </head>
 <body>
-    <h2>Welcome to our store.</h2>
-    <h2>Nude</h2>
+    <h1>Welcome to our store.</h1>
+    <h1>Dune Clay Studio</h1>
+
+    <h2>Home</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>HTTP Methods</th>
+            <th>Path</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET </td>
+            <td>/ (Home page)</td>
+            <td>This retrieves the home page.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Users</h2>
+      <table>
+        <thead>
+            <tr>
+                <th>HTTP Methods</th>
+                <th>Path</th>
+                <th>Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+              <td>GET </td>
+              <td>/</td>
+              <td>This endpoint retrieves all users.</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/users/:id</td>
+                <td>This endpoint retrieves one user, specified by the id.</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/users/register</td>
+                <td>This endpoint is used to register a user.</td>
+            </tr>
+            <tr>
+                <td>PATCH</td>
+                <td>/users/:id</td>
+                <td>This endpoint is used to update a user, specified by the id.</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/users/login</td>
+                <td>This endpoint is used to login a user.</td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>/users/:id</td>
+                <td>This endpoint is used to delete a user, specified by the id.</td>
+            </tr>
+          </tbody>
+      </table>
+
+      <h2>Products</h2>
+      <table>
+        <thead>
+            <tr>
+                <th>HTTP Methods</th>
+                <th>Path</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/</td>
+                    <td>This endpoint retrieves all products.</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/products/:id</td>
+                    <td>This endpoint retrieves one product, specified by the id, specified by the id.</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/products/recent</td>
+                    <td>This endpoint is used to get the recent product, diplays five.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/products/add</td>
+                    <td>This endpoint adds a new product to the database.</td>
+                </tr>
+                <tr>
+                    <td>PATCH</td>
+                    <td>/products/:id</td>
+                    <td>This endpoint is used to update a product, specified by the id.</td>
+                </tr>
+                
+            </tbody>
+
+      </table>
+
+
 </body>
 </html>

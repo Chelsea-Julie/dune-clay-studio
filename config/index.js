@@ -1,4 +1,4 @@
-import 'dotenv'
+import "dotenv/config"
 import { createPool } from 'mysql2'
 import { log as l } from 'console'
 
