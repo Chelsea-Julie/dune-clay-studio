@@ -66,15 +66,14 @@
   }
   </script>
   <style>
-  /* General Styles */
   body {
     margin: 0;
     font-family: 'Marcellus', serif;
-    background-color: #F5F5DC; /* Beige background */
-    color: #4B3F3F; /* Dark brown text */
+    background-color: #F5F5DC; 
+    color: #4B3F3F; 
   }
   
-  /* Hero Section */
+
   .hero-container {
     position: relative;
     width: 100%;
@@ -101,12 +100,12 @@
   }
   
   .hero-title {
-    color: #FFF5EE; /* Off-white text */
+    color: #FFF5EE; 
     font-size: 3rem;
     text-align: center;
   }
   
-  /* Product Grid */
+
   .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -139,7 +138,7 @@
     color: #333;
   }
   
-  /* Button Styles */
+
   .view-button {
     background-color: #4B3F3F;
     color: #FFF5EE;
@@ -153,7 +152,7 @@
   .view-button:hover {
     background-color: #705D56;
   }
-  * Container and Row Styles */
+
 .container {
   padding: 20px;
 }
@@ -169,15 +168,15 @@ h4.display-4 {
   color: #333;
 }
 
-/* Card Styles */
+
 .Card {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 10px; /* Space between cards */
-  width: 300px; /* Increase card width */
+  margin: 10px; 
+  width: 300px; 
 }
 
 .Card:hover {
