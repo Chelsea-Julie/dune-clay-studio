@@ -3,11 +3,11 @@ import axios from 'axios'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import { applyToken } from '@/service/AuthenticatedUser.js'
-import { userCookies } from 'vue3-cookies'
+
 
 const apiURL = 'https://dune-clay-studio.onrender.com/'
 
-console.log(toast, apiURL, applyToken, userCookies);
+console.log(toast, apiURL, applyToken);
 
 export default createStore({
   state: {
