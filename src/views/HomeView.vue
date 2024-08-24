@@ -223,7 +223,7 @@ export default {
   text-decoration: none;
   border-radius: 5px;
 }
-/* a */* Featured Cards Section Styles */
+
 .featured-cards {
   padding: 50px 0;
   background: #f9f9f9;
