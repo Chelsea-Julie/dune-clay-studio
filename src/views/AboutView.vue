@@ -36,7 +36,6 @@
       <div class="content-section">
         <div class="text-section">
           <h2>Explore Our World</h2>
-          <h2>About Us</h2>
           <p>
             We are two passionate women who share a love for the art of pottery and ceramics. Our journey began as a simple hobby, spending countless hours shaping clay and experimenting with glazes in a small, cozy studio. What started as a creative outlet soon blossomed into a shared dream – to bring the beauty of handcrafted ceramics to those who appreciate the finer things in life.
           </p>
@@ -61,10 +60,7 @@
       </div>
 
       <!-- Footer Section -->
-      <div class="footer">
-        <h2>Contact Us</h2>
-        <p>For inquiries, reach us at <a href="mailto:info@dune.com">info@dune.com</a></p>
-      </div>
+    
     </div>
   </div>
 </template>

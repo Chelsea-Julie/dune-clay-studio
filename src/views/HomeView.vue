@@ -26,28 +26,29 @@
         <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/elegant_ceramic_table_lamp.jpg" alt="Pottery Piece 1">
         <div class="card-overlay">
           <p>Elegant Pottery Lamps</p>
-          <a href="./ProductsView.vue" class="shop-now-btn">Shop Now</a>
+          <router-link to="/products" class="shop-now-btn">Shop Now</router-link>
         </div>
       </div>
       <div class="card-item">
         <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Retro_Organic_Chunky_Style_Mugs.jpg" alt="Pottery Piece 2">
         <div class="card-overlay">
           <p>Beautiful Pottery Kitchenwear</p>
-          <a href="#shop-now" class="shop-now-btn">Shop Now</a>
+          <router-link to="/products" class="shop-now-btn">Shop Now</router-link>
         </div>
       </div>
       <div class="card-item">
         <img src="https://kiara-adams.github.io/images/MYLENEBELLE.jpg" alt="Pottery Piece 2">
         <div class="card-overlay">
           <p>Elegant Pottery Vases</p>
-          <a href="#shop-now" class="shop-now-btn">Shop Now</a>
+          <!-- <a href="#shop-now" class="shop-now-btn">Shop Now</a> -->
+          <router-link to="/products" class="shop-now-btn">Shop Now</router-link>
         </div>
       </div>
       <div class="card-item">
         <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Ceramic_cat_sculpture.jpg" alt="Pottery Piece 3">
         <div class="card-overlay">
           <p>Beautiful Pottery Sculptures</p>
-          <a href="#shop-now" class="shop-now-btn">Shop Now</a>
+          <router-link to="/products" class="shop-now-btn">Shop Now</router-link>
         </div>
       </div>
     </div>
@@ -60,18 +61,18 @@
     <div class="testimonial-wrapper">
       <div class="testimonial-item">
         <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Minimalistic_beige_twist_vase.jpg" alt="Customer 1">
-        <p>"The pottery pieces from Dune Clay Studio have truly transformed my living space. Each piece is unique and beautifully crafted."</p>
-        <span>- Sarah J.</span>
+        <p>"The pottery pieces from Dune Clay Studio really adds to your home decor."</p>
+        <span>- Chloe S.</span>
       </div>
       <div class="testimonial-item">
         <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Pot_for_plants.jpg" alt="Customer 2">
         <p>"The pottery pieces from Dune Clay Studio have truly transformed my living space. Each piece is unique and beautifully crafted."</p>
-        <span>- Sarah J.</span>
+        <span>- Erin W.</span>
       </div>
       <div class="testimonial-item">
         <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Speckled_Dinnerware.jpg" alt="Customer 2">
         <p>"I love the attention to detail in every piece. You can tell that these are made with love and care. Highly recommend!"</p>
-        <span>- Mark W.</span>
+        <span>- Keira K.</span>
       </div>
     </div>
   </div>
@@ -81,19 +82,19 @@
 <div class="gallery-container">
   <div class="gallery">
     <div class="gallery-item">
-      <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/sculpture_of_face.jpg" alt="Blue Sofa">
+      <img src="https://kiara-adams.github.io/images/MYLENEBELLE.jpg" alt="Blue Sofa">
       <div class="overlay">
-        <h3>Blue Sofa</h3>
-        <p>A stylish blue sofa perfect for modern living rooms.</p>
-        <button @click="viewCollection('blue-sofa')">View Collection</button>
+        <h3>Brown pottery vase</h3>
+        <p>A stylish pottery vase</p>
+        <router-link to="/products" class="shop-now-btn">View Collection</router-link>
       </div>
     </div>
     <div class="gallery-item">
-      <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Plant_Pot_Holder_Abstract_Vase.jpg" alt="Wooden Cabinet" class="woody">
+      <img src="https://kiara-adams.github.io/images/Dreamy❤️.jpg" alt="Wooden Cabinet" class="woody">
       <div class="overlay">
-        <h3>Wooden Cabinet</h3>
-        <p>A sleek wooden cabinet ideal for minimalist spaces.</p>
-        <button @click="viewCollection('wooden-cabinet')">View Collection</button>
+        <h3>lounge set pottery</h3>
+        <p>A Pottery set.</p>
+        <router-link to="/products" class="shop-now-btn">View Collection</router-link>
       </div>
     </div>
     <!-- <div class="gallery-item">
@@ -115,22 +116,22 @@
     <div class="gallery-item">
       <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Tersilia_tea_set_in_brown_ceramic.jpg" alt="Pendant Light">
       <div class="overlay">
-        <h3>Pendant Light</h3>
-        <p>An elegant pendant light to brighten up any room.</p>
-        <button @click="viewCollection('pendant-light')">View Collection</button>
+        <h3>Pottery Set</h3>
+        <p>An elegant  Potteryset</p>
       </div>
     </div>
     <div class="gallery-item">
-      <img src="https://chelsea-julie.github.io/all-images/images/nodeEOMP/Tersilia_tea_set_in_brown_ceramic.jpg" alt="Shelf Decor">
+      <img src="https://kiara-adams.github.io/images/🤍 (1).jpg" alt="Shelf Decor">
       <div class="overlay">
-        <h3>Shelf Decor</h3>
-        <p>Chic decor items to enhance your shelves.</p>
-        <button @click="viewCollection('shelf-decor')">View Collection</button>
+        <h3>Sculptures</h3>
+        <p>Chic Sculpture design.</p>
+        <router-link to="/products" class="shop-now-btn">View Collection</router-link>
       </div>
     </div>
   </div>
 </div>
-
+<div class="bottom-as">
+  <h2 class="bottom-head">Best sellers</h2>
     <div class="row gap-2 justify-content-center" v-if="recentProduct">
       <Card v-for="product in recentProduct" :key="product.productID" style="width: 18rem;">
         <template #cardHeader>
@@ -148,6 +149,8 @@
       <Spinner/> 
     </div>
   </div>
+</div>
+  
 </template>
 
 
@@ -204,6 +207,9 @@ export default {
   max-width: 80%;
   margin: auto;
 }
+.bottom-as{
+  padding-top: 200px;
+}
 
 .hero-content h2 {
   margin: 0;
@@ -233,7 +239,11 @@ export default {
   text-align: center;
   margin-bottom: 30px;
 }
-
+.bottom-head{ 
+  padding-bottom:50px ;
+  text-align: center;
+  color: #6f4f28;
+}
 .card-wrapper {
   display: flex;
   justify-content: space-around;
@@ -371,7 +381,10 @@ header .container {
   justify-content: space-between;
   align-items: center;
 }
-
+.collect{
+  text-align: center;
+  color: #6f4f28;
+}
 header h1 {
   margin: 0;
   color: #5c4033; /* Dark brown */

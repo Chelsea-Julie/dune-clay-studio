@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <img src="https://kiara-adams.github.io/images/90f27621-5a83-4585-9840-699c06a117e0.png" alt="Admin Dashboard" class="header-image">
+    <img src="https://kiara-adams.github.io/images/MYLENEBELLE.jpg" alt="Admin Dashboard" class="header-image">
 
       <h2 class="adminn">welcome to our Admin</h2>
       <div class="row">
@@ -95,7 +95,7 @@
                                   </div>
                                   <div class="form-control-wrapper d-md-flex d-block justify-content-between">
                                       <button type="submit" class="btn btn-success">Submit</button>
-                                      <button type="reset" class="btn btn-dark">Reset</button>
+                                      <button type="reset" class="btn btn">Reset</button>
                                   </div>
                               </form>
                           </div>
@@ -140,7 +140,7 @@
               <tr v-for="(prod, index) in products" :key="index">
                   <td colspan="3"> <img :src="prod.prodUrl"  alt="${element.productName}" loading="lazy" style="width: 6rem;"> </td>
                   <td colspan="3">{{ prod.prodName }} </td>
-                  <td>{{ prod.prodDescription }}</td>
+                  <td>{{ prod.prodDesc }}</td>
                   <td>{{ prod.quantity }}</td>
                   <td>{{ prod.amount }}</td>
                   <td>{{ prod.Category }}</td>
@@ -390,7 +390,7 @@ onMounted(() => {
 /* Enhanced General container styling */
 .container-fluid {
     padding: 2rem;
-    background-color: #f8f0e3; /* Light sandy beige background */
+    background-color: #f5ddb7; /* Light sandy beige background */
     font-family: 'Arial', sans-serif;
     color: #2c2f33; /* Dark gray text */
     border-radius: 10px; /* Rounded corners for the container */
@@ -399,31 +399,31 @@ onMounted(() => {
 
 /* Enhanced Table Styling */
 .table-hover {
-    background-color: #3b3b3b; /* Darker background for the table */
+    background-color: #f7b130; /* Darker background for the table */
     color: #ffffff; /* White text for better contrast */
     border-radius: 8px;
     overflow: hidden;
 }
 
 .table-hover thead {
-    background-color: #1a1a1a; /* Darker shade for table headers */
+    background-color: #d8a80b; /* Darker shade for table headers */
 }
 
 .table-hover tbody tr:hover {
-    background-color: #4a4a4a; /* Lighter shade for row hover effect */
+    background-color: #f9d078; /* Lighter shade for row hover effect */
 }
 
 /* Button hover effects */
 .btn-success:hover {
-    background-color: #3a773a; /* Darker green */
+    background-color: #e2a92d; /* Darker green */
 }
 
 .btn-danger:hover {
-    background-color: #8b2e12; /* Darker red */
+    background-color: #f5c860; /* Darker red */
 }
 
 .btn-primary:hover {
-    background-color: #1e4f72; /* Darker blue */
+    background-color: #e2b11e; /* Darker blue */
 }
 
 .btn-warning:hover {
@@ -432,13 +432,13 @@ onMounted(() => {
 
 /* Enhanced Modal Styling */
 .modal-content {
-    background-color: #ffffff;
+    background-color: #cf8729;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-header {
-    background-color: #f2f2f2;
+    background-color: #f4dd82;
     border-bottom: 1px solid #ccc;
 }
 
@@ -456,7 +456,7 @@ onMounted(() => {
 }
 
 .form-control:focus {
-    border-color: #5cb85c;
+    border-color: #dfb620;
     box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
 }
 
