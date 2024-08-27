@@ -46,6 +46,8 @@ class Users {
             })
         }
     }
+-
+
 
     static async registerUser(req, res){
         try {
