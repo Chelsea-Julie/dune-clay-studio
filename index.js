@@ -1,17 +1,14 @@
-import express from 'express'
-import path from 'path'
-import cors from 'cors'
-import { userRouter } from './controller/userController.js'
-import { productRouter } from './controller/prodController.js'
+import express from 'express';
+import path from 'path';
+import bodyParser from 'body-parser';
+import { userRouter } from './controller/userController.js';
+import { productRouter } from './controller/prodController.js';
+import cors from 'cors';
 
-import { errorHandling } from './middleware/errorHandlier.js'
 
-
-// Create an express app
-const app = express()
-const port = +process.env.PORT || 4000
-
-// Middleware
+const app = express();
+const port = +process.env.PORT || 6001;
+// middleware
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Credentials", "true");
@@ -23,29 +20,23 @@ app.use((req, res, next) => {
 })
 
 app.use(cors())
-
 app.use('/users', userRouter)
 app.use('/products', productRouter)
-
-app.use( express.static('./static'),
+app.use(
+    express.static('./static'),
     express.json(),
-    express.urlencoded({
-    extended: true
-    })
-    
+    express.urlencoded({extended: true}),
 )
-
-
-
-
-// ENDPOINT
-app.get('^/$|/eShop', (req, res) => {
-    res.status(200).sendFile(path.resolve('./static/html/index.html'))
+// endpoints
+app.get('^/$|/dune', (req, res) =>{
+    res.status(200).sendFile(path.resolve('./static/html/index.html'));
+})
+app.listen(port , () => {
+    console.log('Server is running on ' + port)
 })
 
 
-app.use(errorHandling)
 
-app.listen(port, () => {
-    console.log(`Server is running on ${port}`);
-})
+
+
+
