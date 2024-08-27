@@ -21,6 +21,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Expose-Headers", "Authorization");
     next()
 })
+
 app.use(cors())
 
 app.use('/users', userRouter)
