@@ -6,8 +6,6 @@ import { productRouter } from './controller/prodController.js'
 
 import { errorHandling } from './middleware/errorHandlier.js'
 
-import bodyParser from 'body-parser'
-import { log } from 'console'
 
 // Create an express app
 const app = express()
@@ -37,7 +35,6 @@ app.use( express.static('./static'),
 )
 
 
-app.use(bodyParser.json());
 
 
 // ENDPOINT
