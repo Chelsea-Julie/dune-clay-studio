@@ -2,18 +2,16 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
-import router from '@/router'
-import { useCookies } from 'vue3-cookies'
-const { cookies } = useCookies()
-
-console.log(cookies, router);
-
+// import router from '@/router'
+// import { applyToken } from '@/service/AuthenticatedUser.js'
+// import { useCookies } from 'vue3-cookies'
+// const { cookies } = useCookies()
 
 const apiURL = 'https://dune-clay-studio.onrender.com/'
 
 export default createStore({
   state: {
-    products: [],
+    products: null,
     users: null
   },
   getters: {
@@ -32,16 +30,15 @@ export default createStore({
   actions: {
 
 
-        // ==== User ========
     async fetchUsers(context) {
       try {
         const users = await (await axios.get(`${apiURL}users`)).data
         if (users) {
           console.log('there are results');
           
-          context.commit('setUsers', users)
+          context.commit('setUsers', users.results)
         } else {
-          toast.error(`oops`, {
+          toast.error(`${users}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -72,21 +69,16 @@ export default createStore({
       }
     },
     async register(context, payload) {
-      console.log('hey');
-      
       try {
-        const data = await axios.post(`${apiURL}users/register`, payload)
-        if (data) {
-
-          console.log(data);
-          
-          // context.dispatch('fetchUsers')
-          toast.success(`hey`, {
+        const { token } = await (await axios.post(`${apiURL}users/register`, payload)).data
+        if (token) {
+          context.dispatch('fetchUsers')
+          toast.success(`Well  Done`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
         } else {
-          toast.error(`hey`, {
+          toast.error(`ena ooops`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -100,11 +92,11 @@ export default createStore({
     },
     async updateUser(context, payload) {
       try {
-        const { msg, err } = await (await axios.patch(`${apiURL}user/${payload.userID}`, payload)).data
-        if (msg) {
+        const data = await (await axios.patch(`${apiURL}users/${payload.id}`, payload.load)).data
+        if (data) {
           context.dispatch('fetchUsers')
         } else {
-          toast.error(`${err}`, {
+          toast.error(`ena ooops`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -126,7 +118,7 @@ export default createStore({
         if (data) {
           context.dispatch('fetchUsers')
         } else {
-          toast.error(`oops`, {
+          toast.error(`ena ooops`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -142,7 +134,7 @@ export default createStore({
     // ==== Product =====
     async fetchProducts(context) {
       try {
-        const {data} = await (await axios.get(`${apiURL}products`)).data
+        const { data } = await (await axios.get(`${apiURL}products`)).data
         if (data) {
           context.commit('setProducts', data)
         } else {
@@ -195,10 +187,10 @@ export default createStore({
     },
     async addAProduct(context, payload) {
       try {
-        const { msg } = await (await axios.post(`${apiURL}product/add`, payload)).data
-        if (msg) {
+        const data = await (await axios.post(`${apiURL}products/addproduct`, payload)).data
+        if (data) {
           context.dispatch('fetchProducts')
-          toast.success(`${msg}`, {
+          toast.success(`${data}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -210,12 +202,15 @@ export default createStore({
         })
       }
     },
-    async updateProduct(context, payload) {
+    async updateProduct(context, data) {
+
+      console.log(data);
+      
       try {
-        const { msg } = await (await axios.patch(`${apiURL}product/${payload.productID}`, payload)).data
-        if (msg) {
+        const responce = await (await axios.patch(`${apiURL}products/${data.id}`, data.load)).data
+        if (responce) {
           context.dispatch('fetchProducts')
-          toast.success(`${msg}`, {
+          toast.success(`${responce}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })

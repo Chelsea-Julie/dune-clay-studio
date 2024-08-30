@@ -1,7 +1,7 @@
 <template>
   <header id="header">
     <div class="container">
-      <h1>D-U-N-E</h1>
+      <h1 dune>D-U-N-E</h1>
       <nav>
         <ul>
           <li><router-link to="/" exact-active-class="active">Home</router-link></li>
@@ -99,16 +99,20 @@ nav ul li a:hover {
 }
 
 header.scrolled nav ul li a {
-  color: #fff;
+  color: #e8c281;
+}
+
+header.scrolled [dune]{
+  color: #e8c281;
 }
 
 header.scrolled nav ul li a.active {
-  color: #ffffff; 
+  color: #e8c281; 
   border-bottom: 2px solid #ffffff; 
 }
 
 header.scrolled nav ul li a::after {
-  background: #fff; 
+  background: #e8c281; 
 }
 
 #header {
