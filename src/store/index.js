@@ -12,7 +12,8 @@ const apiURL = 'https://dune-clay-studio.onrender.com/'
 export default createStore({
   state: {
     products: null,
-    users: null
+    users: null,
+    product: null
   },
   getters: {
     getProducts(state) {
@@ -25,6 +26,9 @@ export default createStore({
     },
     setUsers(state, users) {
       state.users = users
+    },
+    setProduct(state, product){
+      state.product = product
     }
   },
   actions: {
@@ -177,9 +181,11 @@ export default createStore({
     },
     async fetchProduct(context, id) {
       try {
-        const { result, msg } = await (await axios.get(`${apiURL}product/${id}`)).data
-        if (result) {
-          context.commit('setProduct', result)
+        const { data, msg } = await (await axios.get(`${apiURL}products/${id}`)).data
+        console.log(data);
+        
+        if (data) {
+          context.commit('setProduct', [data])
         } else {
           toast.error(`${msg}`, {
             autoClose: 2000,

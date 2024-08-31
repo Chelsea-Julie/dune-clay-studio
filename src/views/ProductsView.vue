@@ -23,7 +23,9 @@
           <h5 class="card-title">{{ product.prodName }}</h5>
           <p v-if="visibleDescriptions[product.productID]">{{ product.prodDesc }}</p>
           <p class="lead">Amount: R{{ product.amount }}</p>
-            <button>View Product</button>
+          <router-link :to="`product/${product.prodID}` ">
+              <button class="btn btn-success">View</button>
+          </router-link>
         </template>
       </Card>
     </div>

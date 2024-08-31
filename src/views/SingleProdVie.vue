@@ -21,11 +21,8 @@
           </template>
           <template #cardBody>
             <h5 class="card-title">{{ product.prodName }}</h5>
-            <p v-if="visibleDescriptions[product.productID]">{{ product.prodDesc }}</p>
+            <p>{{ product.prodDesc }}</p>
             <p class="lead">Amount: R{{ product.amount }}</p>
-            <router-link to="/product">
-              <button>View Product</button>
-            </router-link>
           </template>
         </Card>
       </div>
@@ -39,8 +36,10 @@
   <script>
   import Card from '@/components/Card.vue';
   import Spinner from '@/components/Spinner.vue';
-//   import router from '@/router/index.js';
-  
+  // import { useRoute } from 'vue-router'
+  //   import router from '@/router/index.js';
+
+  // const route = useRoute() 
   export default {
     name: 'HomeView',
     components: {
@@ -60,11 +59,13 @@
     },
     computed: {
       products() {
-        return this.$store.state.products;
+        return this.$store.state.product;
       },
     },
     mounted() {
-      return this.$store.dispatch('fetchProduct');
+      console.log(this.$route.params.id);
+      
+      return this.$store.dispatch('fetchProduct', this.$route.params.id);
     },
   };
   </script>
