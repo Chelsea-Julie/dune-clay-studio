@@ -6,18 +6,18 @@
         </div>
         <div class="form-container">
           <h2></h2>
-          <form @submit.prevent="submitContactForm" action="https://formspree.io/f/meqyyrrl" method="POST">
-            <label for="name"><i class="bi bi-person"></i> Name</label>
-            <input type="text" id="name" v-model="contactForm.name" required>
-  
-            <label for="email"><i class="bi bi-envelope"></i> Email</label>
-            <input type="email" id="email" v-model="contactForm.email" required>
-  
-            <label for="message"><i class="bi bi-chat-dots"></i> Message</label>
-            <input type="text" id="message" v-model="contactForm.message" required>
-  
-            <button type="submit">Send</button>
-          </form>
+          <form action="https://formspree.io/f/meqyyrrl" method="POST">
+          <label for="name"><i class="bi bi-person"></i> Name</label>
+          <input type="text" id="name" name="name" v-model="contactForm.name" required>
+
+          <label for="email"><i class="bi bi-envelope"></i> Email</label>
+          <input type="email" id="email" name="email" v-model="contactForm.email" required>
+
+          <label for="message"><i class="bi bi-chat-dots"></i> Message</label>
+          <input type="text" id="message" name="message" required>
+
+          <button type="submit">Send</button>
+        </form>
   
           <div class="contact-info">
             <p><strong>Contact</strong></p>

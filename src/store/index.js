@@ -95,6 +95,10 @@ export default createStore({
         const data = await (await axios.patch(`${apiURL}users/${payload.id}`, payload.load)).data
         if (data) {
           context.dispatch('fetchUsers')
+          toast.success(`${data.msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER
+          })
         } else {
           toast.error(`ena ooops`, {
             autoClose: 2000,
@@ -117,6 +121,10 @@ export default createStore({
         
         if (data) {
           context.dispatch('fetchUsers')
+          toast.success(`${data.msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER
+          })
         } else {
           toast.error(`ena ooops`, {
             autoClose: 2000,
@@ -191,7 +199,7 @@ export default createStore({
         console.log('here' , data);
         if (data) {
           context.dispatch('fetchProducts')
-          toast.success(`${data}`, {
+          toast.success(`${data.msg}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -203,15 +211,12 @@ export default createStore({
         })
       }
     },
-    async updateProduct(context, data) {
-
-      console.log(data);
-      
+    async updateProduct(context, data) {      
       try {
         const responce = await (await axios.patch(`${apiURL}products/${data.id}`, data.load)).data
         if (responce) {
           context.dispatch('fetchProducts')
-          toast.success(`${responce}`, {
+          toast.success(`${responce.msg}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -234,7 +239,7 @@ export default createStore({
           console.log('there');
           
           context.dispatch('fetchProducts')
-          toast.success(`${data}`, {
+          toast.success(`${data.msg}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })

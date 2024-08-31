@@ -92,14 +92,10 @@
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
+                                        <button type="button" @click="updateUser()" class="btn btn-success">Submit</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" @click="updateUser()">Save changes</button>
                             </div>
                             </div>
                         </div>
@@ -124,10 +120,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
                         </div>
                         <div class="modal-body">
                             <form class="form">
@@ -183,14 +176,10 @@
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
+                                        <button type="button" @click="register" class="btn btn-success">Submit</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" @click="register" class="btn btn-primary">Save changes</button>
                         </div>
                         </div>
                     </div>
@@ -226,7 +215,7 @@
                     <td>{{ prod.catergory }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger mb-3" @click="updateID(prod)" data-bs-toggle="modal" data-bs-target="#editProd" style="width: 5rem;">
+                        <button type="button" class="btn btn-success mb-3" @click="updateID(prod)" data-bs-toggle="modal" data-bs-target="#editProd" style="width: 5rem;">
                         Edit
                         </button>
 
@@ -236,9 +225,6 @@
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div class="modal-body">
                                 <form class="form">
@@ -281,14 +267,10 @@
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
+                                        <button type="button" @click="updateProd()" class="btn btn-success">Submit</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" @click="updateProd()" class="btn btn-primary" >Save changes</button>
                             </div>
                             </div>
                         </div>
@@ -296,7 +278,7 @@
 
                         <br> 
 
-                        <button style="width: 5rem;" type="button" @click="prodDelete(prod.prodID)" class="btn btn-danger" :id="prod.prodID" deleteProduct ><i class="fa fa-angle-left"></i> Delete</button>  
+                        <button style="width: 5rem;" type="button" @click="prodDelete(prod.prodID)" class="btn btn-warning" :id="prod.prodID" deleteProduct >Delete</button>  
                     </td>
                 </tr>
               </tbody>
@@ -307,6 +289,7 @@
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProd">
                     ADD PRODUCT
                     </button>
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="addProd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -357,13 +340,9 @@
                                     </div>
                                     <div class="form-control-wrapper d-md-flex d-block justify-content-between">
                                         <button type="submit" @click.prevent="addProd" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button"  class="btn btn-primary">Save changes</button>
                         </div>
                         </div>
                     </div>
