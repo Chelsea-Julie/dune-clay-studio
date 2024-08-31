@@ -3,7 +3,8 @@ import bodyParser from 'body-parser';
 
 import { Products } from '../model/Products.js';
 
-const productRouter = express.Router ()
+const 
+productRouter = express.Router ()
 
 productRouter.use(bodyParser.json())
 
@@ -16,15 +17,15 @@ productRouter.get('/', (req, res) => {
 productRouter.get('/recent', (req, res) => {
     Products.recentProducts(req, res)
   })
+  
+    // to add a new product
+    productRouter.post('/add', (req, res) => {
+      Products.addProduct(req, res)
+    })
 
   // to fetch one productspecified by the id
   productRouter.get('/:id', (req, res) => {
     Products.fetchOneProduct(req, res)
-  })
-
-  // to add a new product
-  productRouter.post('/add', (req, res) => {
-    Products.addProduct(req, res)
   })
 
   // to update an existing product specified by the id
