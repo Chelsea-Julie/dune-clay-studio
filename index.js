@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 // app.use(cors())
 
-app.use(cors({ origin: 'http://localhost:8080'}));
+// app.use(cors({ origin: 'http://localhost:8080'}));
 
 app.use('/users', userRouter)
 app.use('/products', productRouter)
