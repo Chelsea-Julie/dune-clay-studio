@@ -410,12 +410,12 @@ let prodPayload = ref({
 
 function register() {
     console.log(payload);
-    store.dispatch('register', payload)
+    store.dispatch('register', payload.value)
 }
 
 function addProd() {
-    console.log(prodPayload);
-    store.dispatch('addAProduct', prodPayload)
+    console.log(prodPayload.value);
+    store.dispatch('addAProduct', prodPayload.value)
 }
 
 function userDelete(id) {
@@ -443,7 +443,7 @@ function updateUser() {
     
 const data = {
     id : uID,
-    load : payload
+    load : payload.value
 }
 
 console.log(data);
@@ -468,7 +468,7 @@ function updateProd() {
 
     const data = {
         id : pID,
-        load : prodPayload
+        load : prodPayload.value
     }
 
     console.log(data);

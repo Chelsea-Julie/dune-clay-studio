@@ -187,7 +187,8 @@ export default createStore({
     },
     async addAProduct(context, payload) {
       try {
-        const data = await (await axios.post(`${apiURL}products/addproduct`, payload)).data
+        const data = await (await axios.post(`${apiURL}products/add`, payload)).data
+        console.log('here' , data);
         if (data) {
           context.dispatch('fetchProducts')
           toast.success(`${data}`, {
