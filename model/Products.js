@@ -46,11 +46,12 @@ class Products {
     }
 
     static fetchOneProduct(req, res) {
+        
         try {
             const strQry = 
             `SELECT *
-                FROM Products
-               WHERE prodID = ${req.params.id}
+            FROM Products
+            WHERE prodID = ${req.params.id}
                 `
                 db.query(strQry, (err, result) => {
                     if (err) throw new Error(err)
